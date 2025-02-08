@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: notification-service
+  cloud:
+    config:
+      uri: http://config-server:8888
+  mail:
+    host: smtp.mailtrap.io
+    port: 2525
+    username: mail_user
+    password: mail_pass
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  messaging:
+    notification:
+      queue: notification.queue
+      exchange: notification.exchange
+      routingKey: notification.email
+  datasource:
+    url: jdbc:postgresql://localhost:5432/melita_db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
